@@ -63,6 +63,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" id="ngZ-06-Mgi"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -91,7 +92,7 @@
                         <outlet property="categoryPickerHeightConstraint" destination="HoS-9B-mT7" id="r0B-mH-pbI"/>
                         <outlet property="searchBar" destination="qic-Th-3XZ" id="oGa-RN-GxT"/>
                         <outlet property="searchButtonBottomConstraint" destination="5hR-gX-4tQ" id="IlO-QL-LLs"/>
-                        <outlet property="searchButtonHeightConstraint" destination="pcv-3X-NUO" id="wEf-IO-OR8"/>
+                        <outlet property="searchButtonHeightConstraint" destination="ngZ-06-Mgi" id="snT-SY-IHJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoR-Ww-tDK" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -15,8 +15,8 @@ class RGCategoriesViewController : UIViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var categoryPickerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchButtonBottomConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var searchButtonHeightConstraint: UIButton!
+
+    @IBOutlet weak var searchButtonHeightConstraint: NSLayoutConstraint!
     
     var categories: [RGCategory] = []
     

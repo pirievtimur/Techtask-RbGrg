@@ -54,8 +54,11 @@ class RGDetailsViewController: UIViewController {
             self.itemImage.sd_setImage(with: URL.init(string: urlString), completed: { [unowned self] (image, error, cache, url) in
 
                 self.item.images.fullImage = UIImagePNGRepresentation(image!)
-                self.view.layoutIfNeeded()
             })
+        } else {
+            let image = UIImage.init(named: "item_placeholder")!
+            self.item.images.fullImage = UIImagePNGRepresentation(image)
+            self.itemImage.image = image
         }
 
         if let price = item.price, let currency = item.currencyCode {

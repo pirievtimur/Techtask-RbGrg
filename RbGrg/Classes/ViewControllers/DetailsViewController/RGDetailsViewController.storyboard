@@ -83,7 +83,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="NHe-sb-l8i"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal">
                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 </state>

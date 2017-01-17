@@ -62,7 +62,9 @@ class RGSearchResultsCollectionViewController: RGCollectionViewController {
                 }
             })
         } else {
-            item.images.thumbnailImage = UIImagePNGRepresentation(UIImage.init(named: "item_placeholder")!)
+            let image = UIImage.init(named: "item_placeholder")!
+            item.images.thumbnailImage = UIImagePNGRepresentation(image)
+            cell.image.image = image
         }
         
 
