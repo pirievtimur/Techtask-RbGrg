@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Categories View Controller-->
+        <scene sceneID="IJ5-RQ-4Jw">
+            <objects>
+                <viewController storyboardIdentifier="RGCategoriesViewController" automaticallyAdjustsScrollViewInsets="NO" id="3MC-Zv-IBe" customClass="RGCategoriesViewController" customModule="RbGrg" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LfA-hx-Q0f"/>
+                        <viewControllerLayoutGuide type="bottom" id="SJm-XT-uWz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OE3-Ex-G29">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBp-e9-Uec">
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vfy-qK-782">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <subviews>
+                                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qic-Th-3XZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wS-bG-r38">
+                                                <rect key="frame" x="0.0" y="44" width="320" height="0.0"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="HoS-9B-mT7"/>
+                                                </constraints>
+                                            </pickerView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="4wS-bG-r38" firstAttribute="top" secondItem="qic-Th-3XZ" secondAttribute="bottom" id="0zb-6g-hzQ"/>
+                                            <constraint firstItem="qic-Th-3XZ" firstAttribute="leading" secondItem="Vfy-qK-782" secondAttribute="leading" id="5lX-St-bPQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="4wS-bG-r38" secondAttribute="trailing" id="9wC-RE-gOX"/>
+                                            <constraint firstAttribute="bottom" secondItem="4wS-bG-r38" secondAttribute="bottom" id="WSS-og-8q4"/>
+                                            <constraint firstItem="qic-Th-3XZ" firstAttribute="top" secondItem="Vfy-qK-782" secondAttribute="top" id="drL-2e-aI5"/>
+                                            <constraint firstAttribute="trailing" secondItem="qic-Th-3XZ" secondAttribute="trailing" id="eNc-Rf-if1"/>
+                                            <constraint firstItem="4wS-bG-r38" firstAttribute="leading" secondItem="Vfy-qK-782" secondAttribute="leading" id="gmx-Ex-i4d"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Vfy-qK-782" firstAttribute="leading" secondItem="hBp-e9-Uec" secondAttribute="leading" id="KXC-Qu-2Jk"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vfy-qK-782" secondAttribute="bottom" id="bFc-he-RAQ"/>
+                                    <constraint firstItem="Vfy-qK-782" firstAttribute="top" secondItem="hBp-e9-Uec" secondAttribute="top" id="gCU-Re-QgI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vfy-qK-782" secondAttribute="trailing" id="kPV-nY-d6q"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcv-3X-NUO">
+                                <rect key="frame" x="0.0" y="480" width="320" height="0.0"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="ngZ-06-Mgi"/>
+                                </constraints>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickSearchButton:" destination="3MC-Zv-IBe" eventType="touchUpInside" id="CLF-R7-zb9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pcv-3X-NUO" firstAttribute="top" secondItem="hBp-e9-Uec" secondAttribute="bottom" id="30k-jG-PY9"/>
+                            <constraint firstItem="pcv-3X-NUO" firstAttribute="leading" secondItem="OE3-Ex-G29" secondAttribute="leading" id="4m1-UY-YuA"/>
+                            <constraint firstAttribute="bottom" secondItem="pcv-3X-NUO" secondAttribute="bottom" id="5hR-gX-4tQ"/>
+                            <constraint firstItem="hBp-e9-Uec" firstAttribute="width" secondItem="OE3-Ex-G29" secondAttribute="width" id="6Bo-ks-r3v"/>
+                            <constraint firstItem="Vfy-qK-782" firstAttribute="width" secondItem="OE3-Ex-G29" secondAttribute="width" id="Ek0-Om-tEl"/>
+                            <constraint firstItem="hBp-e9-Uec" firstAttribute="leading" secondItem="OE3-Ex-G29" secondAttribute="leading" id="fJO-Ev-KIt"/>
+                            <constraint firstAttribute="trailing" secondItem="pcv-3X-NUO" secondAttribute="trailing" id="qg4-Je-IiE"/>
+                            <constraint firstAttribute="trailing" secondItem="hBp-e9-Uec" secondAttribute="trailing" id="v9R-lK-MbR"/>
+                            <constraint firstItem="hBp-e9-Uec" firstAttribute="top" secondItem="LfA-hx-Q0f" secondAttribute="bottom" id="wGX-1U-SAh"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                    <connections>
+                        <outlet property="categoryPicker" destination="4wS-bG-r38" id="y1L-F4-cS2"/>
+                        <outlet property="categoryPickerHeightConstraint" destination="HoS-9B-mT7" id="r0B-mH-pbI"/>
+                        <outlet property="searchBar" destination="qic-Th-3XZ" id="oGa-RN-GxT"/>
+                        <outlet property="searchButtonBottomConstraint" destination="5hR-gX-4tQ" id="IlO-QL-LLs"/>
+                        <outlet property="searchButtonHeightConstraint" destination="pcv-3X-NUO" id="wEf-IO-OR8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SoR-Ww-tDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="219" y="-505"/>
+        </scene>
+    </scenes>
+</document>

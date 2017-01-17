@@ -1,0 +1,23 @@
+PODS:
+  - Alamofire (4.0.1)
+  - EZAlertController (3.2)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - SnapKit (3.0.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - EZAlertController (= 3.2)
+  - SDWebImage (~> 3.8)
+  - SnapKit
+
+SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  EZAlertController: 633be01320bed47720be54054df47667d61c2481
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+
+PODFILE CHECKSUM: 7e4f040aba0dcb12ec6795af9d442baea4335bd5
+
+COCOAPODS: 1.1.0.rc.2
