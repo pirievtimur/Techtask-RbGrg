@@ -19,8 +19,6 @@ class RGImage {
     var width: CGFloat
     
     init() {
-//        self.fullImage = Data()
-//        self.thumbnailImage = Data()
         self.urlThumbnail = nil
         self.urlFull = nil
         self.height = 1.0
@@ -28,8 +26,6 @@ class RGImage {
     }
     
     init(thumbnailUrl: String, fullUrl: String, width: Int, height: Int) {
-//        self.fullImage = nil
-//        self.thumbnailImage = Data()
         self.urlThumbnail = thumbnailUrl
         self.urlFull = fullUrl
         self.height = CGFloat.init(height)

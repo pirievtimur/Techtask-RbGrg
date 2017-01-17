@@ -14,7 +14,6 @@ class RGSearchResultsCollectionViewController: RGCollectionViewController {
     var category: RGCategory!
     var keyword: String!
     let searchService: RGSearchHTTPService = RGSearchHTTPService()
-//    let imageService: RGHTTPImageService = RGHTTPImageService()
     
     var pagination: PaginationStatus = .off
     
@@ -28,20 +27,20 @@ class RGSearchResultsCollectionViewController: RGCollectionViewController {
     
     override func loadData() {
         refreshControl.beginRefreshing()
-        searchService.loadData(category: (category?.name)!, keyword: keyword, completionBlock: { [unowned self] (results) in
-            self.results = results
-            self.collectionView?.reloadData()
-            self.refreshControl.endRefreshing()
-        }) { (error) in
-            self.refreshControl.endRefreshing()
+        searchService.loadData(category: (category?.name)!, keyword: keyword, completionBlock: { [weak self] (results) in
+            self?.results = results
+            self?.collectionView?.reloadData()
+            self?.refreshControl.endRefreshing()
+        }) { [weak self] (error) in
+            self?.refreshControl.endRefreshing()
             print(error)
         }
     }
     
     override func loadNextData() {
-        searchService.loadNextData(category: (category?.name)!, keyword: keyword, completionBlock: { [unowned self] (results) in
-            self.results.append(contentsOf: results)
-            self.collectionView?.reloadData()
+        searchService.loadNextData(category: (category?.name)!, keyword: keyword, completionBlock: { [weak self] (results) in
+            self?.results.append(contentsOf: results)
+            self?.collectionView?.reloadData()
         }) { (error) in
             print(error)
         }

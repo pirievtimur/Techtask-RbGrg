@@ -10,8 +10,8 @@
         <attribute name="itemPrice" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemThumbnail" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="itemTitle" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="itemUrl570" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemUrlFull" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemUrlThumbnail" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="EtsyItem" positionX="-63" positionY="-18" width="128" height="210"/>

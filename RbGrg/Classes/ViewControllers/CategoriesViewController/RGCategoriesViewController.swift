@@ -51,10 +51,10 @@ class RGCategoriesViewController : UIViewController, UIPickerViewDataSource, UIP
     }
     
     func getCategories() {
-        categoriesHTTPService.loadData(completionBlock: { [unowned self] (categories) in
-            self.categories = categories
-            self.categoryPicker.reloadAllComponents()
-            self.categoryPickerHeightConstraint.constant = 150
+        categoriesHTTPService.loadData(completionBlock: { [weak self] (categories) in
+            self?.categories = categories
+            self?.categoryPicker.reloadAllComponents()
+            self?.categoryPickerHeightConstraint.constant = 150
         }) { (error) in
             print(error)
         }

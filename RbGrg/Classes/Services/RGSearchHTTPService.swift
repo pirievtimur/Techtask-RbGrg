@@ -27,61 +27,38 @@ class RGSearchHTTPService : RGHTTPService {
         
         self.offset = 0
         
-        Alamofire.request(Endpoints.search, parameters: ["api_key":Globals.apiKey, "keyword":keyword, "category":category, "limit": limit, "offset":offset]).validate().responseJSON { [unowned self] response in
-            switch response.result{
-            case .success:
-                let JSONdict = self.convertData(data: response.data!)
-                let items = self.parseToModel(json: JSONdict)
-                let group = DispatchGroup()
-                for item in items {
-                    group.enter()
-                    
-                    self.loadImageData(item: item, completionBlock: { (image) in
-                        item.images = image
-                        group.leave()
-                    }, failureBlock: { (error) in
-                        group.leave()
-                        print(error)
+        Alamofire.request(Endpoints.search, parameters: ["api_key":Globals.apiKey, "keyword":keyword, "category":category, "limit": limit, "offset":offset]).validate().responseJSON { [weak self] response in
+            DispatchQueue.global().async(execute: {
+                switch response.result{
+                case .success:
+                    let JSONdict = self?.convertData(data: response.data!)
+                    let items = self?.parseToModel(json: JSONdict!)
+                    let group = DispatchGroup()
+                    for item in items! {
+                        group.enter()
+                        
+                        self?.loadImageData(item: item, completionBlock: { (image) in
+                            item.images = image
+                            group.leave()
+                        }, failureBlock: { (error) in
+                            group.leave()
+                            print(error)
+                        })
+                    }
+                    group.notify(queue: .main, execute: {
+                        DispatchQueue.main.async(execute: {
+                            self?.pagination = .off
+                            completionBlock(items!)
+                        })
+                    })
+                case .failure(let error):
+                    DispatchQueue.main.async(execute: {
+                        self?.pagination = .off
+                        failureBlock(error)
                     })
                 }
-                group.notify(queue: .main, execute: { 
-                    completionBlock(items)
-                })
-            case .failure(let error):
-                failureBlock(error)
-            }
+            })
         }
-//            switch response.result{
-//            case .success:
-//                let JSONdict = self.convertData(data: response.data!)
-//                let items = self.parseToModel(json: JSONdict)
-////                completionBlock(items)
-//                let group = DispatchGroup()
-//                for i in items {
-//                    let semaphore = DispatchSemaphore.init(value: 1)
-//                    DispatchQueue.global(qos: .userInitiated).async(group: group, execute: {
-//                        let imageservice = RGHTTPImageService()
-//                        imageservice.loadData(item: i, completionBlock: { (image) in
-//                            i.images = image
-//                            semaphore.signal()
-//                        }, failureBlock: { (error) in
-//                            print(error)
-//                            semaphore.signal()
-//                        })
-//                    semaphore.wait()
-//                    }
-//                    )
-//                    
-//                }
-//
-//                group.notify(queue: DispatchQueue.main, execute: {
-//                    completionBlock(items)
-//                })
-//            case .failure(let error):
-//                failureBlock(error)
-//            }
-//        }
-
     }
     
     func loadNextData(category: String, keyword: String, completionBlock: @escaping ([RGItem]) -> (), failureBlock: @escaping (Any) -> ()) {
@@ -93,55 +70,42 @@ class RGSearchHTTPService : RGHTTPService {
         
         pagination = .on
         
-        Alamofire.request(Endpoints.search, parameters: ["api_key":Globals.apiKey, "keyword":keyword, "category":category, "limit": limit, "offset":offset]).validate().responseJSON { [unowned self] response in
-            switch response.result{
-            case .success:
-                let JSONdict = self.convertData(data: response.data!)
-                let items = self.parseToModel(json: JSONdict)
-                let group = DispatchGroup()
-                for item in items {
-                    group.enter()
-                    
-                    self.loadImageData(item: item, completionBlock: { (image) in
-                        item.images = image
-                        group.leave()
-                    }, failureBlock: { (error) in
-                        group.leave()
-                        print(error)
+        Alamofire.request(Endpoints.search, parameters: ["api_key":Globals.apiKey, "keyword":keyword, "category":category, "limit": limit, "offset":offset]).validate().responseJSON { [weak self] response in
+            DispatchQueue.global().async(execute: { 
+                switch response.result{
+                case .success:
+                    let JSONdict = self?.convertData(data: response.data!)
+                    let items = self?.parseToModel(json: JSONdict!)
+                    let group = DispatchGroup()
+                    for item in items! {
+                        group.enter()
+                        
+                        self?.loadImageData(item: item, completionBlock: { (image) in
+                            item.images = image
+                            group.leave()
+                        }, failureBlock: { (error) in
+                            group.leave()
+                            print(error)
+                        })
+                    }
+                    group.notify(queue: .main, execute: {
+                        DispatchQueue.main.async(execute: { 
+                            self?.pagination = .off
+                            completionBlock(items!)
+                        })
+                    })
+                case .failure(let error):
+                    DispatchQueue.main.async(execute: {
+                        self?.pagination = .off
+                        failureBlock(error)
                     })
                 }
-                group.notify(queue: .main, execute: {
-                    self.pagination = .off
-                    completionBlock(items)
-                })
-            case .failure(let error):
-                self.pagination = .off
-                failureBlock(error)
-            }
+            })
         }
-        
-//        if (pagination == .on) { return }
-//        
-//        self.offset += self.limit
-//        
-//        pagination = .on
-//        
-//        Alamofire.request(Endpoints.search, parameters: ["api_key":Globals.apiKey, "keyword":keyword, "category":category, "limit": limit, "offset":offset]).validate().responseJSON { [unowned self] response in
-//            switch response.result{
-//            case .success:
-//                let JSONdict = self.convertData(data: response.data!)
-//                let items = self.parseToModel(json: JSONdict)
-//                self.pagination = .off
-//                completionBlock(items)
-//            case .failure(let error):
-//                self.pagination = .off
-//                failureBlock(error)
-//            }
-//        }
-        
     }
     
     func loadImageData(item: RGItem, completionBlock: @escaping (RGImage) -> (), failureBlock: @escaping (Any) -> ()) {
+        
         var url: String = ""
         
         if let id = String.init("\(item.id)") {
@@ -149,12 +113,14 @@ class RGSearchHTTPService : RGHTTPService {
         }
         
         
-        Alamofire.request(url, parameters: ["api_key":Globals.apiKey]).validate().responseJSON { [unowned self] response in
+        Alamofire.request(url, parameters: ["api_key":Globals.apiKey]).validate().responseJSON { [weak self] response in
             switch response.result{
             case .success:
-                let JSONdict = self.convertData(data: response.data!)
-                let image = self.parseImageModel(json: JSONdict)
-                completionBlock(image)
+                let JSONdict = self?.convertData(data: response.data!)
+                let image = self?.parseImageModel(json: JSONdict!)
+                if (image != nil) {
+                    completionBlock(image!)
+                }
             case .failure(let error):
                 failureBlock(error)
             }

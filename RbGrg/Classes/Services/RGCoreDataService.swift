@@ -32,16 +32,15 @@ class RGCoreDataService {
             newItem.setValue(item.price, forKey: "itemPrice")
             newItem.setValue(item.currencyCode, forKey: "itemCurrency")
             newItem.setValue(item.itemDescription, forKey: "itemDescription")
-//            newItem.setValue(item.images.thumbnail, forKey: "itemThumbnail")
             newItem.setValue(item.images.fullImage, forKey: "itemFullImage")
-//            newItem.setValue(item.images.url570, forKey: "itemUrl570")
+            newItem.setValue(item.images.thumbnailImage, forKey: "itemThumbnail")
             newItem.setValue(item.images.urlFull, forKey: "itemUrlFull")
+            newItem.setValue(item.images.urlThumbnail, forKey: "itemUrlThumbnail")
             newItem.setValue(item.images.width, forKey: "itemImageWidth")
             newItem.setValue(item.images.height, forKey: "itemImageHeight")
             
             do {
                 try context.save()
-                print("Item saved")
                 completionBlock()
             } catch let error as NSError  {
                 print("Error \(error.localizedDescription)")
@@ -135,6 +134,7 @@ class RGCoreDataService {
         newItem.price = object.value(forKey:"itemPrice") as? String
         newItem.currencyCode = object.value(forKey:"itemCurrency") as? String
         newItem.images.urlFull = object.value(forKey:"itemUrlFull") as? String
+        newItem.images.urlThumbnail = object.value(forKey:"itemUrlThumbnail") as? String
         newItem.images.width = object.value(forKey:"itemImageWidth") as! CGFloat
         newItem.images.height = object.value(forKey:"itemImageHeight") as! CGFloat
         newItem.images.thumbnailImage = object.value(forKey:"itemThumbnail") as? Data
