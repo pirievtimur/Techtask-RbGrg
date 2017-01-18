@@ -13,17 +13,8 @@ import UIKit
 
 func calculateHeight(view: UIView, originalWidth: CGFloat, originalHeight: CGFloat) -> CGFloat {
     let screenWidth = view.frame.width
-    do {
-        let aspectRatio = try originalHeight / originalWidth
-        return screenWidth * aspectRatio
-    } catch {
-        return 1.0
-    }
-//    let aspectRatio = originalHeight / originalWidth
-//    if (aspectRatio != nil ) {
-//        return screenWidth * aspectRatio
-//    } else {
-//        return 1.0
-//    }
+
+    let aspectRatio = originalHeight / originalWidth
     
+    return screenWidth * aspectRatio
 }

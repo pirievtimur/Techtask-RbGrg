@@ -84,19 +84,15 @@ class RGDetailsViewController: UIViewController {
     @IBAction func onClickSave(_ sender: Any) {
         switch storageFlag {
         case .stored:
-            storageManager.deleteItem(item: item, completionBlock: { [unowned self] in
-                self.navigationController?.popViewController(animated: true)
-            }, failureBlock: { (error) in
-                print(error)
-            })
+            storageManager.deleteItem(item: item)
+            self.navigationController?.popViewController(animated: true)
         case .notStored:
-            storageManager.storeItem(item: item, completionBlock: { [unowned self] in
+            let stored = storageManager.storeItem(item: item)
+            if (stored) {
                 self.storageFlag = .stored
                 self.showAlert("Item is saved")
                 self.displayData()
-            }, failureBlock: { (error) in
-                self.showAlert(error)
-            })
+            }
         }
     }
     

@@ -16,10 +16,11 @@ class RGCoreDataService {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
-    func storeItem(item: RGItem, completionBlock: @escaping () -> (), failureBlock: @escaping (String) -> ()) {
+    func storeItem(item: RGItem) -> Bool{
         
         if (itemWithId(id: item.id)) {
-            failureBlock("Already in store")
+            print("Already is store")
+            return false
         } else {
             let context = getContext()
             
@@ -41,19 +42,21 @@ class RGCoreDataService {
             
             do {
                 try context.save()
-                completionBlock()
+                return true
             } catch let error as NSError  {
                 print("Error \(error.localizedDescription)")
-                failureBlock(error.localizedDescription)
+                return false
             }
         }
     }
    
     
-    func fetchItem(id: Int, completionBlock: @escaping (RGItem) -> (), failureBlock: @escaping (String) -> ()) {
+    func fetchItem(id: Int) -> RGItem {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "EtsyItem")
         fetchRequest.predicate = NSPredicate.init(format: "itemId == \(id)", argumentArray: nil)
+        
+        let item = RGItem()
         
         do {
             let results = try getContext().fetch(fetchRequest)
@@ -62,13 +65,14 @@ class RGCoreDataService {
             
             let item = convertManagedObject(object: fetchedObject)
                 
-            completionBlock(item)
+            return item
         } catch let error as NSError {
-            failureBlock(error.localizedDescription)
+            print(error.localizedDescription)
+            return item
         }
     }
     
-    func fetchItems(completionBlock: @escaping ([RGItem]) -> (), failureBlock: @escaping (String) -> ()) {
+    func fetchItems() -> [RGItem] {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "EtsyItem")
         
@@ -81,15 +85,15 @@ class RGCoreDataService {
                     items.append(convertManagedObject(object: item))
                 }
             
-                completionBlock(items)
+                return items
             
         } catch let error as NSError {
             print("Error: \(error.localizedDescription)")
-            failureBlock(error.localizedDescription)
+            return items
         }
     }
     
-    func deleteItem(item: RGItem, completionBlock: @escaping () -> (), failureBlock: @escaping (String) -> ()) {
+    func deleteItem(item: RGItem) {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "EtsyItem")
         
@@ -103,9 +107,8 @@ class RGCoreDataService {
                 context.delete(object as! NSManagedObject)
             }
             try context.save()
-            completionBlock()
         } catch let error as NSError {
-            failureBlock(error.localizedDescription)
+            print(error.localizedDescription)
         }
     }
     

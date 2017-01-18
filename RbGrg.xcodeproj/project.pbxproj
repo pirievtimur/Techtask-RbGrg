@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2AB9A22D3C35168E018BCE2E /* Pods_RbGrg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933D44645DB6864B4EFC15C1 /* Pods_RbGrg.framework */; };
+		717E67921E2F56E8003F542B /* RbGrgVategoriesVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717E67911E2F56E8003F542B /* RbGrgVategoriesVCTests.swift */; };
+		717E67AB1E2F5A58003F542B /* RbGrg.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 718441591E26DBA200170CD6 /* RbGrg.xcdatamodeld */; };
+		717E67B91E2F751F003F542B /* RbGrgCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717E67B81E2F751F003F542B /* RbGrgCoreDataTests.swift */; };
+		717E67BE1E2F896F003F542B /* RGCategoriesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7184416F1E26DF2100170CD6 /* RGCategoriesViewController.storyboard */; };
 		718441531E26DBA200170CD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718441521E26DBA200170CD6 /* AppDelegate.swift */; };
 		7184415B1E26DBA200170CD6 /* RbGrg.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 718441591E26DBA200170CD6 /* RbGrg.xcdatamodeld */; };
 		7184415D1E26DBA200170CD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7184415C1E26DBA200170CD6 /* Assets.xcassets */; };
@@ -36,10 +40,26 @@
 		71DC59401E28E75700BB102D /* RGItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC593E1E28E75700BB102D /* RGItem.swift */; };
 		71DC59451E28E7CB00BB102D /* RGCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC59431E28E7CB00BB102D /* RGCollectionViewCell.swift */; };
 		71DC59461E28E7CB00BB102D /* RGCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DC59441E28E7CB00BB102D /* RGCollectionViewCell.xib */; };
+		841AD8951A5F94C713F18E9B /* Pods_RbGrgTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E31848534D1233961B7668CB /* Pods_RbGrgTests.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		717E67941E2F56E8003F542B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 718441471E26DBA100170CD6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7184414E1E26DBA100170CD6;
+			remoteInfo = RbGrg;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4A66738D152FD4B711CC37EA /* Pods-RbGrg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RbGrg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RbGrg/Pods-RbGrg.debug.xcconfig"; sourceTree = "<group>"; };
+		5AA950B4F7A8CB439A687106 /* Pods-RbGrgTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RbGrgTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RbGrgTests/Pods-RbGrgTests.debug.xcconfig"; sourceTree = "<group>"; };
+		717E678F1E2F56E7003F542B /* RbGrgTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RbGrgTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		717E67911E2F56E8003F542B /* RbGrgVategoriesVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RbGrgVategoriesVCTests.swift; sourceTree = "<group>"; };
+		717E67931E2F56E8003F542B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		717E67B81E2F751F003F542B /* RbGrgCoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RbGrgCoreDataTests.swift; sourceTree = "<group>"; };
 		7184414F1E26DBA200170CD6 /* RbGrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RbGrg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		718441521E26DBA200170CD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7184415A1E26DBA200170CD6 /* RbGrg.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RbGrg.xcdatamodel; sourceTree = "<group>"; };
@@ -72,9 +92,19 @@
 		71DC59441E28E7CB00BB102D /* RGCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGCollectionViewCell.xib; sourceTree = "<group>"; };
 		933D44645DB6864B4EFC15C1 /* Pods_RbGrg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RbGrg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CC2ABB4A89DED5014A1126 /* Pods-RbGrg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RbGrg.release.xcconfig"; path = "Pods/Target Support Files/Pods-RbGrg/Pods-RbGrg.release.xcconfig"; sourceTree = "<group>"; };
+		D505F7EF493878964740EDA6 /* Pods-RbGrgTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RbGrgTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RbGrgTests/Pods-RbGrgTests.release.xcconfig"; sourceTree = "<group>"; };
+		E31848534D1233961B7668CB /* Pods_RbGrgTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RbGrgTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		717E678C1E2F56E7003F542B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				841AD8951A5F94C713F18E9B /* Pods_RbGrgTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7184414C1E26DBA100170CD6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -91,14 +121,27 @@
 			children = (
 				4A66738D152FD4B711CC37EA /* Pods-RbGrg.debug.xcconfig */,
 				A9CC2ABB4A89DED5014A1126 /* Pods-RbGrg.release.xcconfig */,
+				5AA950B4F7A8CB439A687106 /* Pods-RbGrgTests.debug.xcconfig */,
+				D505F7EF493878964740EDA6 /* Pods-RbGrgTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		717E67901E2F56E8003F542B /* RbGrgTests */ = {
+			isa = PBXGroup;
+			children = (
+				717E67911E2F56E8003F542B /* RbGrgVategoriesVCTests.swift */,
+				717E67B81E2F751F003F542B /* RbGrgCoreDataTests.swift */,
+				717E67931E2F56E8003F542B /* Info.plist */,
+			);
+			path = RbGrgTests;
 			sourceTree = "<group>";
 		};
 		718441461E26DBA100170CD6 = {
 			isa = PBXGroup;
 			children = (
 				718441511E26DBA200170CD6 /* RbGrg */,
+				717E67901E2F56E8003F542B /* RbGrgTests */,
 				718441501E26DBA200170CD6 /* Products */,
 				093ECEBF752C2F7AE211D9D5 /* Pods */,
 				D5606AA4DA188665E3A251D9 /* Frameworks */,
@@ -109,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				7184414F1E26DBA200170CD6 /* RbGrg.app */,
+				717E678F1E2F56E7003F542B /* RbGrgTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				933D44645DB6864B4EFC15C1 /* Pods_RbGrg.framework */,
+				E31848534D1233961B7668CB /* Pods_RbGrgTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -256,6 +301,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		717E678E1E2F56E7003F542B /* RbGrgTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 717E67981E2F56E8003F542B /* Build configuration list for PBXNativeTarget "RbGrgTests" */;
+			buildPhases = (
+				9DBEAE4ACC20792EA02E152F /* [CP] Check Pods Manifest.lock */,
+				717E678B1E2F56E7003F542B /* Sources */,
+				717E678C1E2F56E7003F542B /* Frameworks */,
+				717E678D1E2F56E7003F542B /* Resources */,
+				6220A9E3E400193B82EC1599 /* [CP] Embed Pods Frameworks */,
+				AFF1F5B94DFE89358E0CF796 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				717E67951E2F56E8003F542B /* PBXTargetDependency */,
+			);
+			name = RbGrgTests;
+			productName = RbGrgTests;
+			productReference = 717E678F1E2F56E7003F542B /* RbGrgTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7184414E1E26DBA100170CD6 /* RbGrg */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 718441641E26DBA200170CD6 /* Build configuration list for PBXNativeTarget "RbGrg" */;
@@ -286,6 +352,11 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Timur Piriev";
 				TargetAttributes = {
+					717E678E1E2F56E7003F542B = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7184414E1E26DBA100170CD6;
+					};
 					7184414E1E26DBA100170CD6 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = C22TD2AZTE;
@@ -307,11 +378,20 @@
 			projectRoot = "";
 			targets = (
 				7184414E1E26DBA100170CD6 /* RbGrg */,
+				717E678E1E2F56E7003F542B /* RbGrgTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		717E678D1E2F56E7003F542B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				717E67BE1E2F896F003F542B /* RGCategoriesViewController.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7184414D1E26DBA100170CD6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,6 +425,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RbGrg/Pods-RbGrg-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6220A9E3E400193B82EC1599 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RbGrgTests/Pods-RbGrgTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6EF35CAD08BC2DBE7730299C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -375,9 +470,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RbGrg/Pods-RbGrg-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9DBEAE4ACC20792EA02E152F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AFF1F5B94DFE89358E0CF796 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RbGrgTests/Pods-RbGrgTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		717E678B1E2F56E7003F542B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				717E67921E2F56E8003F542B /* RbGrgVategoriesVCTests.swift in Sources */,
+				717E67AB1E2F5A58003F542B /* RbGrg.xcdatamodeld in Sources */,
+				717E67B91E2F751F003F542B /* RbGrgCoreDataTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7184414B1E26DBA100170CD6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -407,6 +542,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		717E67951E2F56E8003F542B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7184414E1E26DBA100170CD6 /* RbGrg */;
+			targetProxy = 717E67941E2F56E8003F542B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		7184415E1E26DBA200170CD6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -419,6 +562,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		717E67961E2F56E8003F542B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AA950B4F7A8CB439A687106 /* Pods-RbGrgTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RbGrgTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ptb.RbGrgTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RbGrg.app/RbGrg";
+			};
+			name = Debug;
+		};
+		717E67971E2F56E8003F542B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D505F7EF493878964740EDA6 /* Pods-RbGrgTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RbGrgTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ptb.RbGrgTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RbGrg.app/RbGrg";
+			};
+			name = Release;
+		};
 		718441621E26DBA200170CD6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -543,6 +714,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		717E67981E2F56E8003F542B /* Build configuration list for PBXNativeTarget "RbGrgTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				717E67961E2F56E8003F542B /* Debug */,
+				717E67971E2F56E8003F542B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7184414A1E26DBA100170CD6 /* Build configuration list for PBXProject "RbGrg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

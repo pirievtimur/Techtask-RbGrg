@@ -13,14 +13,21 @@ class RGCategoriesHTTPService : RGHTTPService {
 
     func loadData(completionBlock: @escaping ([RGCategory]) -> (), failureBlock: @escaping (Any) -> ()) {
         Alamofire.request(Endpoints.categories, parameters: ["api_key":Globals.apiKey]).validate().responseJSON { [weak self] response in
-            switch response.result{
-            case .success:
-                let JSONdict = self?.convertData(data: response.data!)
-                let categories = self?.parseToModel(json: JSONdict!)
-                completionBlock(categories!)
-            case .failure(let error):
-                failureBlock(error)
-            }
+            
+            DispatchQueue.global().async(execute: { 
+                switch response.result{
+                case .success:
+                    let JSONdict = self?.convertData(data: response.data!)
+                    let categories = self?.parseToModel(json: JSONdict!)
+                    DispatchQueue.main.async(execute: {
+                        completionBlock(categories!)
+                    })
+                case .failure(let error):
+                    DispatchQueue.main.async(execute: {
+                        failureBlock(error)
+                    })
+                }
+            })
         }
     }
     

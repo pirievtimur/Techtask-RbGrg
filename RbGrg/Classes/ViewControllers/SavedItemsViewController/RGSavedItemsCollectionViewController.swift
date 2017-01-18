@@ -30,14 +30,9 @@ class RGSavedItemsCollectionViewController: RGCollectionViewController {
     override func loadData() {
         results = []
         refreshControl.beginRefreshing()
-        storageManager.fetchItems(completionBlock: { [unowned self] (items) in
-            self.results = items
-            self.collectionView?.reloadData()
-            self.refreshControl.endRefreshing()
-        }) { (error) in
-            print(error)
-            self.refreshControl.endRefreshing()
-        }
+        results = storageManager.fetchItems()
+        self.collectionView?.reloadData()
+        self.refreshControl.endRefreshing()
     }
     
     // MARK: - Collection view methods

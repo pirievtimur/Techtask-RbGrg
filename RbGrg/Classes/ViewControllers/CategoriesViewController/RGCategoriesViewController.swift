@@ -31,8 +31,6 @@ class RGCategoriesViewController : UIViewController, UIPickerViewDataSource, UIP
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getCategories()
-        
         subscribeKeyboardNotifications()
         
         self.searchBar.delegate = self
@@ -43,7 +41,7 @@ class RGCategoriesViewController : UIViewController, UIPickerViewDataSource, UIP
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        
+        getCategories()
     }
     
     deinit {
